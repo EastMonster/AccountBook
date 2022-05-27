@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">AccountBook 记账本</string>
+    <string name="button_save">确定</string>
+    <string name="empty_not_saved">无效的账目数据。</string>
+    <string name="new_account">创建新记录</string>
+    <string name="modify_account">修改记录</string>
+    <string name="button_delete">删除</string>
+    <string-array name="type_array">
+        <item>无</item>
+        <item>餐饮</item>
+        <item>交通</item>
+        <item>购物</item>
+        <item>服务</item>
+        <item>教育</item>
+        <item>娱乐</item>
+        <item>生活缴费</item>
+        <item>医疗</item>
+        <item>发红包</item>
+        <item>转账</item>
+    </string-array>
+</resources>
