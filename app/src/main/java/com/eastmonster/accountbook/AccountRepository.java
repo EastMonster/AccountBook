@@ -5,20 +5,34 @@ import android.app.Application;
 import androidx.lifecycle.LiveData;
 
 import java.util.List;
+import java.util.Vector;
 
 public class AccountRepository {
     private AccountDao mAccountDao;
     private LiveData<List<Account>> mAllAccounts;
+    private List<Account> temp;
 
     AccountRepository(Application application) {
         AccountRoomDatabase db = AccountRoomDatabase.getDatabase(application);
         mAccountDao = db.accountDAO();
         mAllAccounts = mAccountDao.getAll();
-        System.out.println();
     }
 
     LiveData<List<Account>> getAllAccounts() {
         return mAllAccounts;
+    }
+
+    StatItem getOneTypeAccounts(int target, long begin, long end) {
+        double sum = 0.0;
+        if (temp != null)
+            temp.clear();
+        temp = mAccountDao.getTypeAll(target, begin, end);
+        for (Account account : temp) {
+            System.out.println(account.getAmount());
+            System.err.println("EXECUTING");
+            sum += account.getAmount();
+        }
+        return new StatItem(target, sum);
     }
 
     // 方法不能在 UI 相关的线程里面调用
@@ -39,5 +53,4 @@ public class AccountRepository {
             mAccountDao.delete(account);
         });
     }
-
 }

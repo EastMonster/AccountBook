@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Date;
 
@@ -41,9 +42,7 @@ public class NewAccountActivity extends AppCompatActivity {
         Spinner spinner = findViewById(R.id.spinner);
         TextView labelText = findViewById(R.id.labelText);
 
-        //final AccountListAdapter adapter = new AccountListAdapter(new AccountListAdapter.AccountDiff());
-        mAccountViewModel = MainActivity.getmAccountViewModel(); // !!
-        //mAccountViewModel.getAllAccounts().observe(this, adapter::submitList);
+        mAccountViewModel = MainActivity.getmAccountViewModel(); // !!!
 
         ArrayAdapter<CharSequence> sAdapter = ArrayAdapter.createFromResource(this,
                 R.array.type_array, android.R.layout.simple_spinner_dropdown_item); // 初始化微调框
@@ -62,7 +61,11 @@ public class NewAccountActivity extends AppCompatActivity {
         });
 
         button.setOnClickListener((view) -> {
-            mAccountViewModel.insert(new Account(typePos, Math.max(0.01, Double.parseDouble(mEditAmountView.getText().toString())), date.getTime()));
+            if (mEditAmountView.getText().toString().equals("") ||
+            mEditAmountView.getText().toString().equals("."))
+                Toast.makeText(this, "请输入一个有效的数字", Toast.LENGTH_SHORT).show();
+            else
+                mAccountViewModel.insert(new Account(typePos, Math.max(0.01, Double.parseDouble(mEditAmountView.getText().toString())), date.getTime()));
             finish();
         });
 
@@ -83,19 +86,5 @@ public class NewAccountActivity extends AppCompatActivity {
             });
             deButton.setVisibility(View.VISIBLE);
         }
-//            Intent replyIntent = new Intent();
-
-//            if (TextUtils.isEmpty(mEditWordView.getText())) {
-//                setResult(RESULT_CANCELED, replyIntent);
-//            } else {
-//                String amount = mEditWordView.getText().toString();
-//                try {
-//                    replyIntent.putExtra(EXTRA_REPLY, new Account(typePos, Double.parseDouble(amount), date.getTime()));
-//                } catch (NumberFormatException nfe) {
-//                    setResult(RESULT_CANCELED, replyIntent);
-//                    finish();
-//                }
-//                setResult(RESULT_OK, replyIntent);
-//            }
     }
 }

@@ -37,6 +37,7 @@
         android:layout_width="217dp"
         android:layout_height="53dp"
         android:layout_marginTop="36dp"
+        android:defaultFocusHighlightEnabled="true"
         android:ems="10"
         android:fontFamily="@font/wechat_num"
         android:inputType="number|numberDecimal"
@@ -84,13 +85,15 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.274" />
+        app:layout_constraintVertical_bias="0.275" />
 
     <Button
         android:id="@+id/deleteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:backgroundTint="@android:color/holo_red_dark"
+        android:backgroundTintMode="src_in"
         android:text="@string/button_delete"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"

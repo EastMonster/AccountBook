@@ -1,0 +1,201 @@
+@startuml
+
+title __ACCOUNTBOOK's Class Diagram__\n
+
+  namespace com.eastmonster.accountbook {
+    class com.eastmonster.accountbook.Account {
+        - amount : double
+        - id : int
+        - time : long
+        - type : int
+        + Account()
+        + Account()
+        + getAmount()
+        + getId()
+        + getTime()
+        + getType()
+        + setAmount()
+        + setId()
+        + setTime()
+        + setType()
+    }
+  }
+  
+
+  namespace com.eastmonster.accountbook {
+    interface com.eastmonster.accountbook.AccountDao {
+        {abstract} + delete()
+        {abstract} + getAll()
+        {abstract} + getTypeAll()
+        {abstract} + insert()
+        {abstract} + update()
+    }
+  }
+  
+
+  namespace com.eastmonster.accountbook {
+    class com.eastmonster.accountbook.AccountListAdapter {
+        + AccountListAdapter()
+        + onBindViewHolder()
+        + onCreateViewHolder()
+    }
+  }
+  
+
+  namespace com.eastmonster.accountbook {
+    class com.eastmonster.accountbook.AccountListAdapter.AccountDiff {
+        + areContentsTheSame()
+        + areItemsTheSame()
+    }
+  }
+  
+
+  namespace com.eastmonster.accountbook {
+    class com.eastmonster.accountbook.AccountRepository {
+        - mAllAccounts : LiveData<List<Account>>
+        - temp : List<Account>
+        ~ AccountRepository()
+        ~ delete()
+        ~ getAllAccounts()
+        ~ getOneTypeAccounts()
+        ~ insert()
+        ~ update()
+    }
+  }
+  
+
+  namespace com.eastmonster.accountbook {
+    abstract class com.eastmonster.accountbook.AccountRoomDatabase {
+        {static} ~ databaseWriteExecutor : ExecutorService
+        {static} - INSTANCE : AccountRoomDatabase
+        {static} - NUMBER_OF_THREADS : int
+        {static} - sRoomDatabaseCallback : Callback
+        {abstract} + accountDAO()
+        {static} ~ getDatabase()
+    }
+  }
+  
+
+  namespace com.eastmonster.accountbook {
+    class com.eastmonster.accountbook.AccountViewHolder {
+        {static} + convertion : String[]
+        ~ amountText : TextView
+        ~ modifyButton : Button
+        ~ timeText : TextView
+        ~ typeImage : ImageView
+        ~ typeText : TextView
+        + bind()
+        {static} + create()
+        {static} + getTypeName()
+        - AccountViewHolder()
+    }
+  }
+  
+
+  namespace com.eastmonster.accountbook {
+    class com.eastmonster.accountbook.AccountViewModel {
+        - mAllWords : LiveData<List<Account>>
+        + AccountViewModel()
+        + delete()
+        + insert()
+        + update()
+        ~ getAllAccounts()
+        ~ getOneTypeSum()
+    }
+  }
+  
+
+  namespace com.eastmonster.accountbook {
+    class com.eastmonster.accountbook.MainActivity {
+        {static} + DEFAULT_ACCOUNT : Account
+        {static} - mAccountViewModel : AccountViewModel
+        {static} + getmAccountViewModel()
+        # onCreate()
+    }
+  }
+  
+
+  namespace com.eastmonster.accountbook {
+    class com.eastmonster.accountbook.NewAccountActivity {
+        {static} + EXTRA_REPLY : String
+        - date : Date
+        - mEditAmountView : EditText
+        - typePos : int
+        # onCreate()
+    }
+  }
+  
+
+  namespace com.eastmonster.accountbook {
+    class com.eastmonster.accountbook.StatActivity {
+        - date : Date
+        - statItemList : Vector<StatItem>
+        # onCreate()
+    }
+  }
+  
+
+  namespace com.eastmonster.accountbook {
+    class com.eastmonster.accountbook.StatItem {
+        - sumAmount : double
+        - type : int
+        + StatItem()
+        + compareTo()
+        + getSumAmount()
+        + getType()
+        + setSumAmount()
+        + setType()
+    }
+  }
+  
+
+  namespace com.eastmonster.accountbook {
+    class com.eastmonster.accountbook.StatListAdapter {
+        - stats : List<StatItem>
+        + StatListAdapter()
+        + getItemCount()
+        + onBindViewHolder()
+        + onCreateViewHolder()
+    }
+  }
+  
+
+  namespace com.eastmonster.accountbook {
+    class com.eastmonster.accountbook.StatViewHolder {
+        ~ amountText : TextView
+        ~ typeImage : ImageView
+        ~ typeText : TextView
+        + bind()
+        {static} + create()
+        - StatViewHolder()
+    }
+  }
+  
+
+  com.eastmonster.accountbook.Account .up.|> java.io.Serializable
+  com.eastmonster.accountbook.AccountListAdapter -up-|> androidx.recyclerview.widget.ListAdapter
+  com.eastmonster.accountbook.AccountListAdapter +-down- com.eastmonster.accountbook.AccountListAdapter.AccountDiff
+  com.eastmonster.accountbook.AccountListAdapter.AccountDiff -up-|> androidx.recyclerview.widget.DiffUtil.ItemCallback
+  com.eastmonster.accountbook.AccountRepository o-- com.eastmonster.accountbook.AccountDao : mAccountDao
+  com.eastmonster.accountbook.AccountRoomDatabase -up-|> androidx.room.RoomDatabase
+  com.eastmonster.accountbook.AccountViewHolder -up-|> androidx.recyclerview.widget.RecyclerView.ViewHolder
+  com.eastmonster.accountbook.AccountViewModel -up-|> androidx.lifecycle.AndroidViewModel
+  com.eastmonster.accountbook.AccountViewModel o-- com.eastmonster.accountbook.AccountRepository : mRepository
+  com.eastmonster.accountbook.MainActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.eastmonster.accountbook.NewAccountActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.eastmonster.accountbook.NewAccountActivity o-- com.eastmonster.accountbook.AccountViewModel : mAccountViewModel
+  com.eastmonster.accountbook.StatActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.eastmonster.accountbook.StatActivity o-- com.eastmonster.accountbook.AccountViewModel : mAccountViewModel
+  com.eastmonster.accountbook.StatItem .up.|> java.lang.Comparable
+  com.eastmonster.accountbook.StatListAdapter -up-|> androidx.recyclerview.widget.RecyclerView.Adapter
+  com.eastmonster.accountbook.StatViewHolder -up-|> androidx.recyclerview.widget.RecyclerView.ViewHolder
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

@@ -34,7 +34,7 @@ public class AccountListAdapter extends ListAdapter<Account, AccountViewHolder> 
         });
     }
 
-    static class AccountDiff extends DiffUtil.ItemCallback<Account> {
+    static class AccountDiff extends DiffUtil.ItemCallback<Account> { // 似乎是判断重复的
 
         @Override
         public boolean areItemsTheSame(@NonNull Account oldItem, @NonNull Account newItem) {
@@ -43,7 +43,7 @@ public class AccountListAdapter extends ListAdapter<Account, AccountViewHolder> 
 
         @Override
         public boolean areContentsTheSame(@NonNull Account oldItem, @NonNull Account newItem) {
-            return oldItem.getAmount() == newItem.getAmount(); // TODO 这里同理。
+            return oldItem.getId() == newItem.getId();
         }
     }
 }

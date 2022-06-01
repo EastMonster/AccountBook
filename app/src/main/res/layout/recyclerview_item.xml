@@ -24,7 +24,7 @@
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/wechat_num"
         android:gravity="center"
-        android:text="TextView"
+        android:text="Amount"
         android:textColor="@color/black"
         android:textSize="20sp" />
 
@@ -35,7 +35,7 @@
         android:layout_alignTop="@id/accountTypeImage"
         android:layout_marginStart="16dp"
         android:layout_toEndOf="@id/accountTypeImage"
-        android:text="TextView"
+        android:text="Type"
         android:textSize="16sp" />
 
     <TextView
@@ -48,7 +48,7 @@
         android:layout_marginEnd="16dp"
         android:layout_toEndOf="@id/accountTypeImage"
         android:fontFamily="@font/wechat_num"
-        android:text="TextView" />
+        android:text="Date" />
 
     <Button
         android:id="@+id/modifyButton"

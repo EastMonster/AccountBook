@@ -1,8 +1,5 @@
 package com.eastmonster.accountbook;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,13 +7,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
+import android.view.View;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
-
-    public static final int NEW_ACCOUNT_ACTIVITY_REQUEST_CODE = 1;
 
     public static final Account DEFAULT_ACCOUNT = new Account(0,0,0);
     private static AccountViewModel mAccountViewModel;
@@ -31,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        FloatingActionButton fab = findViewById(R.id.fabAddAccount);
+        FloatingActionButton fabAdd = findViewById(R.id.fabAddAccount);
+        FloatingActionButton fabStat = findViewById(R.id.fabStatButton);
 
         final AccountListAdapter adapter = new AccountListAdapter(new AccountListAdapter.AccountDiff());
         recyclerView.setAdapter(adapter);
@@ -43,11 +39,18 @@ public class MainActivity extends AppCompatActivity {
             adapter.submitList(accounts);
         });
 
-        fab.setOnClickListener(view -> {
+        fabAdd.setOnClickListener(view -> {
             startActivity(new Intent(this, NewAccountActivity.class).putExtra("account", DEFAULT_ACCOUNT));
         });
+
+        fabStat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, StatActivity.class));
+            }
+        });
     }
-//
+//    原来使用的返回数据方法
 //    ActivityResultLauncher<String> launcher = registerForActivityResult(new AccountContract(),
 //        new ActivityResultCallback<Account>() {
 //        @Override

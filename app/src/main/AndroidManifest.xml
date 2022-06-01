@@ -10,10 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication2">
         <activity
-            android:name="com.eastmonster.accountbook.NewAccountActivity"
+            android:name=".StatActivity"
             android:exported="false" />
         <activity
-            android:name="com.eastmonster.accountbook.MainActivity"
+            android:name=".NewAccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
