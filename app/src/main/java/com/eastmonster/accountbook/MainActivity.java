@@ -13,7 +13,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final Account DEFAULT_ACCOUNT = new Account(0,0,0);
+    public static final Account DEFAULT_ACCOUNT = new Account(0, 0, 0, "");
     private static AccountViewModel mAccountViewModel;
 
     public static AccountViewModel getmAccountViewModel() {

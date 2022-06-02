@@ -39,11 +39,16 @@ public class AccountViewHolder extends RecyclerView.ViewHolder {
     }
 
 
-    public void bind(int type, double amount, long time) {
+    public void bind(int type, double amount, long time, String remark) {
+        String timelane;
         typeImage.setImageResource(R.drawable.click_before);
         typeText.setText(getTypeName(type));
-        timeText.setText(new SimpleDateFormat("yyyy-MM-dd HH:mm").format(time));
+        timelane = new String(new SimpleDateFormat("yyyy-MM-dd HH:mm").format(time));
         amountText.setText(String.format("-%.2f", amount));
+        if (!remark.equals("")) {
+            timelane = timelane.concat(" | " + remark);
+        }
+        timeText.setText(timelane);
     }
 
     public static AccountViewHolder create(ViewGroup parent) {

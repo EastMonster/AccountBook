@@ -24,7 +24,7 @@ public class AccountListAdapter extends ListAdapter<Account, AccountViewHolder> 
     @Override
     public void onBindViewHolder(AccountViewHolder holder, int position) {
         Account current = getItem(position);
-        holder.bind(current.getType(), current.getAmount(), current.getTime());
+        holder.bind(current.getType(), current.getAmount(), current.getTime(), current.getRemark());
 
         holder.modifyButton.setOnClickListener(new View.OnClickListener() {
             @Override

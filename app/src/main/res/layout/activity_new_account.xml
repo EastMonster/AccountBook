@@ -8,6 +8,21 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/textView3"
+        android:layout_width="44dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="备注"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/spinner"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.035" />
+
+    <TextView
         android:id="@+id/labelText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,6 +33,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,18 +41,18 @@
         android:id="@+id/okButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="44dp"
         android:text="@string/button_save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/amountNumberDecimal" />
+        app:layout_constraintTop_toBottomOf="@+id/remarkEditText" />
 
     <EditText
         android:id="@+id/amountNumberDecimal"
         android:layout_width="217dp"
         android:layout_height="53dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="32dp"
         android:defaultFocusHighlightEnabled="true"
         android:ems="10"
         android:fontFamily="@font/wechat_num"
@@ -52,7 +68,7 @@
         android:layout_width="18dp"
         android:layout_height="25dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="124dp"
         android:layout_marginEnd="12dp"
         android:fontFamily="@font/wechat_num"
         android:text="￥"
@@ -64,11 +80,12 @@
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="147dp"
-        android:layout_height="33dp"
+        android:layout_width="217dp"
+        android:layout_height="31dp"
         android:layout_marginTop="36dp"
         android:gravity="center_vertical"
         app:layout_constraintEnd_toEndOf="@+id/amountNumberDecimal"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/amountNumberDecimal"
         app:layout_constraintTop_toBottomOf="@+id/amountNumberDecimal" />
 
@@ -85,13 +102,13 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.275" />
+        app:layout_constraintVertical_bias="0.269" />
 
     <Button
         android:id="@+id/deleteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="44dp"
         android:backgroundTint="@android:color/holo_red_dark"
         android:backgroundTintMode="src_in"
         android:text="@string/button_delete"
@@ -100,4 +117,15 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/okButton" />
+
+    <EditText
+        android:id="@+id/remarkEditText"
+        android:layout_width="219dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
 </androidx.constraintlayout.widget.ConstraintLayout>

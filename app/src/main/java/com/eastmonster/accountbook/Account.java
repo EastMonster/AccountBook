@@ -18,18 +18,23 @@ public class Account implements Serializable {
     @ColumnInfo(name = "time")
     private long time;
 
-    public Account(int type, double amount, long time) {
+    @ColumnInfo(name = "remark")
+    private String remark;
+
+    public Account(int type, double amount, long time, String remark) {
         this.type = type;
         this.amount = amount;
         this.time = time;
+        this.remark = remark;
     }
 
     @Ignore
-    public Account(int id, int type, double amount, long time) {
+    public Account(int id, int type, double amount, long time, String remark) {
         this.id = id;
         this.type = type;
         this.amount = amount;
         this.time = time;
+        this.remark = remark;
     }
 
     public int getId() {
@@ -64,4 +69,11 @@ public class Account implements Serializable {
         this.time = time;
     }
 
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
 }

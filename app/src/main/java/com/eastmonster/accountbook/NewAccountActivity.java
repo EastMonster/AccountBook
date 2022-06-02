@@ -41,6 +41,7 @@ public class NewAccountActivity extends AppCompatActivity {
         final Button deButton = findViewById(R.id.deleteButton);
         Spinner spinner = findViewById(R.id.spinner);
         TextView labelText = findViewById(R.id.labelText);
+        EditText remark = findViewById(R.id.remarkEditText);
 
         mAccountViewModel = MainActivity.getmAccountViewModel(); // !!!
 
@@ -65,7 +66,9 @@ public class NewAccountActivity extends AppCompatActivity {
             mEditAmountView.getText().toString().equals("."))
                 Toast.makeText(this, "请输入一个有效的数字", Toast.LENGTH_SHORT).show();
             else
-                mAccountViewModel.insert(new Account(typePos, Math.max(0.01, Double.parseDouble(mEditAmountView.getText().toString())), date.getTime()));
+                mAccountViewModel.insert(new Account(typePos, Math.max(0.01,
+                        Double.parseDouble(mEditAmountView.getText().toString())),
+                        date.getTime(), remark.getText().toString()));
             finish();
         });
 
@@ -80,8 +83,11 @@ public class NewAccountActivity extends AppCompatActivity {
             spinner.setSelection(typeInfo.getType());
             labelText.setText(R.string.modify_account);
             mEditAmountView.setText(String.format("%.2f", typeInfo.getAmount()));
+            remark.setText(typeInfo.getRemark());
             button.setOnClickListener((view) -> {
-                mAccountViewModel.update(new Account(typeInfo.getId(), typePos, Math.max(0.01, Double.parseDouble(mEditAmountView.getText().toString())), typeInfo.getTime()));
+                mAccountViewModel.update(new Account(typeInfo.getId(), typePos, Math.max(0.01,
+                        Double.parseDouble(mEditAmountView.getText().toString())),
+                        typeInfo.getTime(), remark.getText().toString()));
                 finish();
             });
             deButton.setVisibility(View.VISIBLE);
