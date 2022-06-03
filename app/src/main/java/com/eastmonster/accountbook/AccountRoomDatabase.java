@@ -17,9 +17,9 @@ public abstract class AccountRoomDatabase extends RoomDatabase {
 
     private static volatile AccountRoomDatabase INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;
-    static final ExecutorService databaseWriteExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
+    public static final ExecutorService databaseWriteExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
-    static AccountRoomDatabase getDatabase(final Context context) { // Classic Singleton
+    public static AccountRoomDatabase getDatabase(final Context context) { // Classic Singleton
         if (INSTANCE == null) {
             synchronized (AccountRoomDatabase.class) {
                 if (INSTANCE == null) {

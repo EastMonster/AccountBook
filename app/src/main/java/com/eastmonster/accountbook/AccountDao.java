@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData;
 import androidx.room.*;
 
 import java.util.List;
-import java.util.Vector;
 
 @Dao
 public interface AccountDao {

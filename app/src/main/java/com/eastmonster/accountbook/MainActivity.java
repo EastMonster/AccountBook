@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         FloatingActionButton fabAdd = findViewById(R.id.fabAddAccount);
         FloatingActionButton fabStat = findViewById(R.id.fabStatButton);
+        BottomNavigationView bnv = findViewById(R.id.bottomNavigationView);
 
         final AccountListAdapter adapter = new AccountListAdapter(new AccountListAdapter.AccountDiff());
         recyclerView.setAdapter(adapter);
@@ -49,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, StatActivity.class));
             }
         });
+
+
     }
 //    原来使用的返回数据方法
 //    ActivityResultLauncher<String> launcher = registerForActivityResult(new AccountContract(),

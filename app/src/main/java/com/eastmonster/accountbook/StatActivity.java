@@ -13,7 +13,6 @@ import android.widget.TextView;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
-import java.util.List;
 import java.util.Vector;
 
 public class StatActivity extends AppCompatActivity {
