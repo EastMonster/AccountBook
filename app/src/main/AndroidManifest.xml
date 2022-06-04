@@ -10,10 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication2">
         <activity
-            android:name=".StatActivity"
-            android:exported="false" />
-        <activity
-            android:name=".NewAccountActivity"
+            android:name=".AccountOperationActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

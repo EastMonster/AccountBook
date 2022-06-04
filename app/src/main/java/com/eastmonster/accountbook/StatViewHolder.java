@@ -21,8 +21,8 @@ public class StatViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(int type, double amount) {
-        typeImage.setImageResource(R.drawable.click_before);
-        typeText.setText(AccountViewHolder.getTypeName(type));
+        typeImage.setImageResource(Account.getImage(type));
+        typeText.setText(Account.getTypeName(type));
         amountText.setText(String.format("%.2f", amount));
     }
 

@@ -3,17 +3,17 @@ package com.eastmonster.accountbook;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
 
-public class StatListAdapter extends RecyclerView.Adapter<StatViewHolder> {
+public class StatListAdapter extends ListAdapter<StatItem, StatViewHolder> {
 
-    private List<StatItem> stats;
-
-    public StatListAdapter(List<StatItem> stats) {
-        this.stats = stats;
+    public StatListAdapter(@NonNull DiffUtil.ItemCallback<StatItem> diffCallback) {
+        super(diffCallback);
     }
 
     @NonNull
@@ -24,12 +24,19 @@ public class StatListAdapter extends RecyclerView.Adapter<StatViewHolder> {
 
     @Override
     public void onBindViewHolder(StatViewHolder holder, int position) {
-        StatItem current = stats.get(position);
+        StatItem current = getItem(position);
         holder.bind(current.getType(), current.getSumAmount());
     }
 
-    @Override
-    public int getItemCount() {
-        return stats.size();
+    static class AccountDiff extends DiffUtil.ItemCallback<StatItem> { // 似乎是判断重复的
+        @Override
+        public boolean areItemsTheSame(@NonNull StatItem oldItem, @NonNull StatItem newItem) {
+            return oldItem == newItem;
+        }
+
+        @Override
+        public boolean areContentsTheSame(@NonNull StatItem oldItem, @NonNull StatItem newItem) {
+            return oldItem.getType() == newItem.getType();
+        }
     }
 }

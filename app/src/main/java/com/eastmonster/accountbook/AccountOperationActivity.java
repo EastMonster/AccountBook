@@ -2,9 +2,11 @@ package com.eastmonster.accountbook;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -15,9 +17,7 @@ import android.widget.Toast;
 
 import java.util.Date;
 
-public class NewAccountActivity extends AppCompatActivity {
-
-    public static final String EXTRA_REPLY = "com.example.myapplication2.accountlistsql.REPLY";
+public class AccountOperationActivity extends AppCompatActivity {
 
     private AccountViewModel mAccountViewModel;
 
@@ -41,7 +41,9 @@ public class NewAccountActivity extends AppCompatActivity {
         TextView labelText = findViewById(R.id.labelText);
         EditText remark = findViewById(R.id.remarkEditText);
 
-        mAccountViewModel = MainActivity.getmAccountViewModel(); // !!!
+        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        mAccountViewModel = AccountFragment.getmAccountViewModel(); // !!!
 
         ArrayAdapter<CharSequence> sAdapter = ArrayAdapter.createFromResource(this,
                 R.array.type_array, android.R.layout.simple_spinner_dropdown_item); // 初始化微调框
@@ -67,11 +69,13 @@ public class NewAccountActivity extends AppCompatActivity {
                 mAccountViewModel.insert(new Account(typePos, Math.max(0.01,
                         Double.parseDouble(mEditAmountView.getText().toString())),
                         date.getTime(), remark.getText().toString()));
+            imm.hideSoftInputFromWindow(getWindow().getDecorView().getWindowToken(), 0); // 完成后收回软键盘
             finish();
         });
 
         deButton.setOnClickListener(view -> {
             mAccountViewModel.delete(typeInfo);
+            imm.hideSoftInputFromWindow(getWindow().getDecorView().getWindowToken(), 0);
             finish();
         });
 
@@ -86,9 +90,15 @@ public class NewAccountActivity extends AppCompatActivity {
                 mAccountViewModel.update(new Account(typeInfo.getId(), typePos, Math.max(0.01,
                         Double.parseDouble(mEditAmountView.getText().toString())),
                         typeInfo.getTime(), remark.getText().toString()));
+                imm.hideSoftInputFromWindow(getWindow().getDecorView().getWindowToken(), 0);
                 finish();
             });
             deButton.setVisibility(View.VISIBLE);
         }
+
+        mEditAmountView.requestFocus(); // 自动获得焦点
+
+        imm.showSoftInput(mEditAmountView, InputMethodManager.RESULT_SHOWN);
+        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
     }
 }

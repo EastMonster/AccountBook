@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/detailed_info">
+    <fragment
+        android:id="@+id/detailed_info"
+        android:name="com.eastmonster.accountbook.AccountFragment"
+        android:label="账目"
+        tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/setting"
+        android:name="com.eastmonster.accountbook.SettingFragment"
+        android:label="设置"
+        tools:layout="@layout/fragment_setting" />
+    <fragment
+        android:id="@+id/statistics_info"
+        android:name="com.eastmonster.accountbook.StatisticsFragment"
+        android:label="统计"
+        tools:layout="@layout/fragment_statistics" />
+</navigation>

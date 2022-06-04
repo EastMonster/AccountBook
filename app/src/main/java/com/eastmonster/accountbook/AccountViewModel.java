@@ -22,10 +22,6 @@ public class AccountViewModel extends AndroidViewModel {
         return mAllWords;
     }
 
-    StatItem getOneTypeSum(int type, long begin, long end) {
-        return mRepository.getOneTypeAccounts(type, begin, end);
-    }
-
     public void insert(Account account) {
         mRepository.insert(account);
     }

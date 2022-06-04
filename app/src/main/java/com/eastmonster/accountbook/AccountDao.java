@@ -1,6 +1,7 @@
 package com.eastmonster.accountbook;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.room.*;
 
 import java.util.List;
@@ -10,8 +11,17 @@ public interface AccountDao {
     @Query("SELECT * FROM Account ORDER BY TIME DESC")
     LiveData<List<Account>> getAll();
 
-    @Query("SELECT * FROM ACCOUNT WHERE TYPE = :target AND TIME >= :begin AND TIME < :end")
-    List<Account> getTypeAll(int target, long begin, long end);
+    @Query("SELECT type as type, SUM(amount) AS sumAmount FROM Account " +
+           "WHERE TIME >= :begin AND TIME < :end " +
+           "GROUP BY type ORDER BY sumAmount DESC ")
+    LiveData<List<StatItem>> getSumByType(long begin, long end);
+
+    @Query("SELECT SUM(amount) FROM Account " +
+           "WHERE TIME >= :begin AND TIME < :end")
+    LiveData<Double> getMonthlySum(long begin, long end);
+
+    @Query("DELETE FROM Account")
+    void nukeTable();
 
     @Insert
     void insert(Account account);

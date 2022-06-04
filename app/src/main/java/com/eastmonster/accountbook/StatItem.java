@@ -29,4 +29,9 @@ public class StatItem implements Comparable<StatItem> {
     public int compareTo(StatItem s) { // 降序显示
         return this.sumAmount >= s.getSumAmount() ? 1 : 0;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%d, %.2f\n", type, sumAmount);
+    }
 }

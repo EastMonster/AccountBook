@@ -3,13 +3,15 @@ package com.eastmonster.accountbook;
 import android.app.Application;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import java.util.List;
 
 public class AccountRepository {
     private AccountDao mAccountDao;
     private LiveData<List<Account>> mAllAccounts;
-    private List<Account> temp;
+    private LiveData<List<StatItem>> mStatList;
+    private LiveData<Double> monthlySum;
 
     AccountRepository(Application application) {
         AccountRoomDatabase db = AccountRoomDatabase.getDatabase(application);
@@ -21,17 +23,14 @@ public class AccountRepository {
         return mAllAccounts;
     }
 
-    StatItem getOneTypeAccounts(int target, long begin, long end) {
-        double sum = 0.0;
-        if (temp != null)
-            temp.clear();
-        temp = mAccountDao.getTypeAll(target, begin, end);
-        for (Account account : temp) {
-            System.out.println(account.getAmount());
-            System.err.println("EXECUTING");
-            sum += account.getAmount();
-        }
-        return new StatItem(target, sum);
+    LiveData<List<StatItem>> getSumByType(long begin, long end) {
+        mStatList = mAccountDao.getSumByType(begin, end);
+        return mStatList;
+    }
+
+    LiveData<Double> getMonthlySum(long begin, long end) {
+        monthlySum = mAccountDao.getMonthlySum(begin, end);
+        return monthlySum;
     }
 
     // 方法不能在 UI 相关的线程里面调用
@@ -52,4 +51,16 @@ public class AccountRepository {
             mAccountDao.delete(account);
         });
     }
+
+    void nukeTable() {
+        AccountRoomDatabase.databaseWriteExecutor.execute(() -> {
+            mAccountDao.nukeTable();
+        });
+    }
+
+//    void deleteAll(AccountViewModel model) {
+//        AccountRoomDatabase.databaseWriteExecutor.execute(() -> {
+//            mAccountDao.deleteAll(model);
+//        });
+//    }
 }

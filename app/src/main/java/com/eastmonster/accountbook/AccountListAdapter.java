@@ -28,7 +28,7 @@ public class AccountListAdapter extends ListAdapter<Account, AccountViewHolder> 
         holder.modifyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                view.getContext().startActivity(new Intent(view.getContext(), NewAccountActivity.class).putExtra("account", current));
+                view.getContext().startActivity(new Intent(view.getContext(), AccountOperationActivity.class).putExtra("account", current));
             }
         });
     }

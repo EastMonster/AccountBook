@@ -37,6 +37,8 @@ public abstract class AccountRoomDatabase extends RoomDatabase {
             super.onCreate(db);
             databaseWriteExecutor.execute(() -> {
                 AccountDao dao = INSTANCE.accountDAO(); // 建表
+//                dao.insert(new Account(1, 5.50, 1672544119000L, "")); //2022-12-31
+//                dao.insert(new Account(2, 5.50, 1672457719000L, "")); //2023-01-01
             });
         }
     };
