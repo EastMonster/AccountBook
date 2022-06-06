@@ -8,4 +8,3 @@
 
 # 部分素材来源
 图标素材：[阿里巴巴矢量图标库 iconfront](https://www.iconfont.cn/)  
-音效素材：[*Undertale*](https://store.steampowered.com/app/391540)  
