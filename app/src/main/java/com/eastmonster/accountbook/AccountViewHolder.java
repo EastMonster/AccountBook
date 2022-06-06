@@ -20,15 +20,6 @@ public class AccountViewHolder extends RecyclerView.ViewHolder {
     TextView amountText;
     Button modifyButton;
 
-    public static final String[] convertion = new String[] {"无", "餐饮", "交通", "购物", "服务", "教育", "娱乐", "生活缴费", "医疗", "发红包", "转账"};
-
-
-    public static String getTypeName(int type) {
-        if (type > 10)
-            return null;
-        return convertion[type];
-    }
-
     private AccountViewHolder(View itemView) {
         super(itemView);
         typeImage = itemView.findViewById(R.id.accountTypeImage);
@@ -41,8 +32,8 @@ public class AccountViewHolder extends RecyclerView.ViewHolder {
 
     public void bind(int type, double amount, long time, String remark) {
         String timelane;
-        typeImage.setImageResource(R.drawable.click_before);
-        typeText.setText(getTypeName(type));
+        typeImage.setImageResource(Account.getImage(type));
+        typeText.setText(Account.getTypeName(type));
         timelane = new String(new SimpleDateFormat("yyyy-MM-dd HH:mm").format(time));
         amountText.setText(String.format("-%.2f", amount));
         if (!remark.equals("")) {

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/detailed_info"
+        android:title="账目"
+        android:icon="@drawable/ic_account_list"/>
+
+    <item android:id="@+id/statistics_info"
+        android:title="统计"
+        android:icon="@drawable/ic_statistics"/>
+
+    <item android:id="@+id/setting"
+        android:title="设置"
+        android:icon="@drawable/ic_setting"/>
+</menu>

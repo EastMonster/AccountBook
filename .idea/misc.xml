@@ -3,20 +3,39 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/AccountBook/app/src/main/res/layout/activity_main.xml" value="0.1445877295818679" />
+        <entry key="..\:/Android/AccountBook/app/src/main/res/layout/activity_new_account.xml" value="0.8657894736842106" />
+        <entry key="..\:/Android/AccountBook/app/src/main/res/layout/datepick_dialog.xml" value="0.2564280750521195" />
+        <entry key="..\:/Android/AccountBook/app/src/main/res/layout/fragment_account.xml" value="0.16666666666666666" />
+        <entry key="..\:/Android/AccountBook/app/src/main/res/layout/fragment_date_picker.xml" value="0.12661195779601406" />
+        <entry key="..\:/Android/AccountBook/app/src/main/res/layout/fragment_setting.xml" value="0.16666666666666666" />
+        <entry key="..\:/Android/AccountBook/app/src/main/res/layout/fragment_statistics.xml" value="0.3333333333333333" />
+        <entry key="..\:/Android/AccountBook/app/src/main/res/xml/about_preferences.xml" value="0.1" />
+        <entry key="..\:/Android/AccountBook/app/src/main/res/xml/preferences.xml" value="0.1" />
+        <entry key="..\:/Android/MyApplication2/app/src/main/res/drawable-anydpi/ic_setting.xml" value="0.112" />
         <entry key="..\:/Android/MyApplication2/app/src/main/res/drawable/account_icon.xml" value="0.327" />
         <entry key="..\:/Android/MyApplication2/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.1845" />
         <entry key="..\:/Android/MyApplication2/app/src/main/res/font/item_layout_font.xml" value="0.287109375" />
         <entry key="..\:/Android/MyApplication2/app/src/main/res/font/wechat_nums.xml" value="0.287890625" />
-        <entry key="..\:/Android/MyApplication2/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Android/MyApplication2/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
         <entry key="..\:/Android/MyApplication2/app/src/main/res/layout/activity_main2.xml" value="0.22" />
         <entry key="..\:/Android/MyApplication2/app/src/main/res/layout/activity_modify_account.xml" value="0.3333333333333333" />
         <entry key="..\:/Android/MyApplication2/app/src/main/res/layout/activity_new_account.xml" value="0.25" />
         <entry key="..\:/Android/MyApplication2/app/src/main/res/layout/activity_stat.xml" value="0.22" />
+        <entry key="..\:/Android/MyApplication2/app/src/main/res/layout/fragment_account.xml" value="0.21219226260257915" />
+        <entry key="..\:/Android/MyApplication2/app/src/main/res/layout/fragment_item_list_dialog_list_dialog.xml" value="0.22" />
         <entry key="..\:/Android/MyApplication2/app/src/main/res/layout/fragment_list.xml" value="0.22" />
+        <entry key="..\:/Android/MyApplication2/app/src/main/res/layout/fragment_setting.xml" value="0.16666666666666666" />
+        <entry key="..\:/Android/MyApplication2/app/src/main/res/layout/fragment_setting_list.xml" value="0.22" />
+        <entry key="..\:/Android/MyApplication2/app/src/main/res/layout/fragment_statistics.xml" value="0.21219226260257915" />
         <entry key="..\:/Android/MyApplication2/app/src/main/res/layout/recyclerview_item.xml" value="0.3333333333333333" />
         <entry key="..\:/Android/MyApplication2/app/src/main/res/layout/recyclerview_item_test.xml" value="0.264453125" />
         <entry key="..\:/Android/MyApplication2/app/src/main/res/layout/stat_item.xml" value="0.1" />
+        <entry key="..\:/Android/MyApplication2/app/src/main/res/menu/bnv_item.xml" value="0.14666666666666667" />
         <entry key="..\:/Android/MyApplication2/app/src/main/res/menu/bottom_navi_bar.xml" value="0.16666666666666666" />
+        <entry key="..\:/Android/MyApplication2/app/src/main/res/xml/asd.xml" value="0.255859375" />
+        <entry key="..\:/Android/MyApplication2/app/src/main/res/xml/preferences.xml" value="0.1375" />
+        <entry key="..\:/Android/MyApplication2/app/src/main/res/xml/root_preferences.xml" value="0.16666666666666666" />
       </map>
     </option>
   </component>
