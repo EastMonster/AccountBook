@@ -8,6 +8,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 
+import com.eastmonster.accountbook.activities.AccountOperationActivity;
+import com.eastmonster.accountbook.database.Account;
+
 public class AccountListAdapter extends ListAdapter<Account, AccountViewHolder> {
 
     public AccountListAdapter(@NonNull DiffUtil.ItemCallback<Account> diffCallback) {

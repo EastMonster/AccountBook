@@ -1,15 +1,11 @@
 package com.eastmonster.accountbook;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.view.*;
 import android.widget.*;
-import androidx.activity.ComponentActivity;
 
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.eastmonster.accountbook.database.Account;
 
 import java.text.SimpleDateFormat;
 

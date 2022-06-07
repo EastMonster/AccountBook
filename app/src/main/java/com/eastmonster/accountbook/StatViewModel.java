@@ -4,11 +4,11 @@ import android.app.Application;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 
-import java.util.Date;
+import com.eastmonster.accountbook.database.AccountRepository;
+import com.eastmonster.accountbook.database.StatItem;
+
 import java.util.List;
-import java.util.Vector;
 
 public class StatViewModel extends AndroidViewModel {
 

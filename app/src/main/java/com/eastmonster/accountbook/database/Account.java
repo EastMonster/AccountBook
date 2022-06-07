@@ -1,6 +1,8 @@
-package com.eastmonster.accountbook;
+package com.eastmonster.accountbook.database;
 
 import androidx.room.*;
+
+import com.eastmonster.accountbook.R;
 
 import java.io.Serializable;
 
@@ -26,16 +28,16 @@ public class Account implements Serializable {
 
     @Ignore
     public static final int[] imageSet = new int[] {
-            R.drawable.ic_type_null,
-            R.drawable.ic_type_food,
-            R.drawable.ic_type_transportation,
-            R.drawable.ic_type_shopping,
-            R.drawable.ic_type_service,
-            R.drawable.ic_type_education,
-            R.drawable.ic_type_fun,
-            R.drawable.ic_type_lifefee,
-            R.drawable.ic_type_medical,
-            R.drawable.ic_type_redenvelopeout,
+            com.eastmonster.accountbook.R.drawable.ic_type_null,
+            com.eastmonster.accountbook.R.drawable.ic_type_food,
+            com.eastmonster.accountbook.R.drawable.ic_type_transportation,
+            com.eastmonster.accountbook.R.drawable.ic_type_shopping,
+            com.eastmonster.accountbook.R.drawable.ic_type_service,
+            com.eastmonster.accountbook.R.drawable.ic_type_education,
+            com.eastmonster.accountbook.R.drawable.ic_type_fun,
+            com.eastmonster.accountbook.R.drawable.ic_type_lifefee,
+            com.eastmonster.accountbook.R.drawable.ic_type_medical,
+            com.eastmonster.accountbook.R.drawable.ic_type_redenvelopeout,
             R.drawable.ic_type_transfer
     };
 

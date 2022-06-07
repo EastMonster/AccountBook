@@ -5,19 +5,11 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceFragmentCompat;
-import androidx.recyclerview.widget.RecyclerView;
 
 import androidx.preference.Preference;
-import android.preference.RingtonePreference;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.eastmonster.accountbook.databinding.FragmentSettingBinding;
-import com.google.android.material.snackbar.Snackbar;
+import com.eastmonster.accountbook.database.AccountRepository;
 
 
 public class SettingFragment extends PreferenceFragmentCompat {

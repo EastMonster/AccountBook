@@ -1,7 +1,6 @@
-package com.eastmonster.accountbook;
+package com.eastmonster.accountbook.database;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.room.*;
 
 import java.util.List;

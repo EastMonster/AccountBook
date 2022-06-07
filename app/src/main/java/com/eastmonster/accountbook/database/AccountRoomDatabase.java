@@ -1,4 +1,4 @@
-package com.eastmonster.accountbook;
+package com.eastmonster.accountbook.database;
 
 import android.content.Context;
 

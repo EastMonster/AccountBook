@@ -1,4 +1,4 @@
-package com.eastmonster.accountbook;
+package com.eastmonster.accountbook.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +14,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.eastmonster.accountbook.AccountFragment;
+import com.eastmonster.accountbook.AccountViewModel;
+import com.eastmonster.accountbook.R;
+import com.eastmonster.accountbook.database.Account;
 
 import java.util.Date;
 

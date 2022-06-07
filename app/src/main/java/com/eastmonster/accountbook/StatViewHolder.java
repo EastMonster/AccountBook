@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.eastmonster.accountbook.database.Account;
+
 public class StatViewHolder extends RecyclerView.ViewHolder {
     ImageView typeImage;
     TextView typeText;

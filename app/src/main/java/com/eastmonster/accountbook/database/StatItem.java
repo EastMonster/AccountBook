@@ -1,4 +1,4 @@
-package com.eastmonster.accountbook;
+package com.eastmonster.accountbook.database;
 
 public class StatItem implements Comparable<StatItem> {
     private int type;

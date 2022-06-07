@@ -1,4 +1,4 @@
-package com.eastmonster.accountbook;
+package com.eastmonster.accountbook.activities;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,6 +23,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.eastmonster.accountbook.R;
 import com.eastmonster.accountbook.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
